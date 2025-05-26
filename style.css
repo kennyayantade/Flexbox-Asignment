@@ -1,0 +1,236 @@
+/* ========================================
+   TESTIMONIALS CSS STYLES
+   ======================================== */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* ========================================
+   MAIN CONTAINER STYLES
+   ======================================== */
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   FLEXBOX LAYOUT STYLES
+   ======================================== */
+
+.testimonials-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   TESTIMONIAL CARD STYLES
+   ======================================== */
+
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Top Border Effect */
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* Card Hover Effects */
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   PROFILE IMAGE STYLES
+   ======================================== */
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 4px solid #667eea;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .profile-image {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   STUDENT NAME STYLES
+   ======================================== */
+
+.student-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   RATING STYLES
+   ======================================== */
+
+.rating {
+    margin-bottom: 20px;
+}
+
+.stars {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.rating-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ========================================
+   COMMENT STYLES
+   ======================================== */
+
+.comment {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    position: relative;
+}
+
+/* Quote Mark Decorations */
+.comment::before {
+    content: '"';
+    font-size: 3rem;
+    color: #667eea;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    opacity: 0.3;
+}
+
+.comment::after {
+    content: '"';
+    font-size: 3rem;
+    color: #667eea;
+    position: absolute;
+    bottom: -25px;
+    right: -15px;
+    opacity: 0.3;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   ======================================== */
+
+@media (max-width: 768px) {
+    .testimonials-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        min-width: auto;
+        max-width: none;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   ADDITIONAL UTILITY CLASSES
+   ======================================== */
+
+/* Alternative color schemes */
+.testimonial-card.blue-theme::before {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+.testimonial-card.purple-theme::before {
+    background: linear-gradient(90deg, #a8edea, #fed6e3);
+}
+
+.testimonial-card.orange-theme::before {
+    background: linear-gradient(90deg, #ff9a9e, #fecfef);
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility improvements */
+.testimonial-card:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-card,
+    .profile-image {
+        transition: none;
+    }
+    
+    .testimonial-card:hover {
+        transform: none;
+    }
+    
+    .testimonial-card:hover .profile-image {
+        transform: none;
+    }
+}
